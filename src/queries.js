@@ -4,7 +4,7 @@ export const HOME_PAGE = gql`
     {
         movies(limit: 20, rating: 7){
             title
-            genre
+            rating
             summary
         }
     }
