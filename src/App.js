@@ -6,12 +6,25 @@ import Home from './Home';
 import Details from './Details';
 import { GlobalStyle } from './globalStyles';
 
+
 class App extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  handleScroll(e){
+    let heightBound = window.height * 0.8
+    if (heightBound > window.scrollY) {
+        // Probably you want to load new cards?
+        console.log('hi');
+    } 
+  }
+
   render() {
     return (
       <ApolloProvider client={client}>
       <Router>
-        <main>
+        <main onScroll={this.handleScroll.bind(this)}>
           <GlobalStyle />
           <Route exact={true} path='/' component={Home} />
           <Route path='/details/:movieId' component={Details} />

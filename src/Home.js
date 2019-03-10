@@ -11,7 +11,13 @@ const Container = styled.div`
     justify-content: center;
 `;
 
-const Home = () => 
+const Home = () => {
+
+    window.onscroll = ()=>{
+        console.log('current scroll: ', window.scrollY);
+    }
+    
+    return(
 <Container>
     <Query query={HOME_PAGE}>
         {({ loading, data, error }) => {
@@ -27,6 +33,6 @@ const Home = () =>
             />});
         }}
     </Query>
-</Container>
-
+</Container>)
+}
 export default Home;
